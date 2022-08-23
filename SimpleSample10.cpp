@@ -106,10 +106,10 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdL
     _CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 #endif
 
-	// DXUT создаст и использует лучшее устройство (либо D3D9, либо D3D10)
+    // DXUT создаст и использует лучшее устройство (либо D3D9, либо D3D10)
     // который доступен в системе в зависимости от того, какие обратные вызовы D3D установлены ниже
     
-	// Установить обратные вызовы DXUT
+    // Установить обратные вызовы DXUT
     DXUTSetCallbackMsgProc( MsgProc );
     DXUTSetCallbackKeyboard( OnKeyboard );
     DXUTSetCallbackFrameMove( OnFrameMove );
@@ -347,7 +347,7 @@ bool CALLBACK ModifyDeviceSettings( DXUTDeviceSettings* pDeviceSettings, void* p
             pDeviceSettings->d3d9.BehaviorFlags = D3DCREATE_SOFTWARE_VERTEXPROCESSING;
         }
 
-		// Для отладки вершинных шейдеров требуется либо REF, либо программная обработка вершин
+	// Для отладки вершинных шейдеров требуется либо REF, либо программная обработка вершин
         // и для отладки пиксельных шейдеров требуется REF.
 #ifdef DEBUG_VS
         if( pDeviceSettings->d3d9.DeviceType != D3DDEVTYPE_REF )
@@ -362,7 +362,7 @@ bool CALLBACK ModifyDeviceSettings( DXUTDeviceSettings* pDeviceSettings, void* p
 #endif
     }
 
-	// Для первого созданного устройства, если это REF-устройство, опционально отображать диалоговое окно с предупреждением
+     // Для первого созданного устройства, если это REF-устройство, опционально отображать диалоговое окно с предупреждением
     static bool s_bFirstTime = true;
     if( s_bFirstTime )
     {
@@ -394,7 +394,7 @@ LRESULT CALLBACK MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bo
                           void* pUserContext )
 {
     // Передавайте сообщения в вызовы диспетчера диалоговых ресурсов, 
-	// чтобы состояние графического интерфейса обновлялось правильно.
+    // чтобы состояние графического интерфейса обновлялось правильно.
     *pbNoFurtherProcessing = g_DialogResourceManager.MsgProc( hWnd, uMsg, wParam, lParam );
     if( *pbNoFurtherProcessing )
         return 0;
